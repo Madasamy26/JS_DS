@@ -1,21 +1,25 @@
 import { hello, tes } from './scripts/import-example';
 
+import { multiply } from './modules/multiply';
+
 import './styles/style.css';
 import './styles/style.scss';
 import './styles/style.sass';
 
-hello();
+const print = (arrayVal) => {
+  document.write("result: ")
+  for (let elements of arrayVal) {
+
+    document.write("</span>&nbsp" + elements);
+  }
+}
 
 async function run() {
-  const value = await tes();
-  console.log(value)
+  const val = multiply();
+  print(val)
+
 }
 
 run();
 
-async function lazyLoadExample() {
-  const { lazyLoad } = await import('./scripts/lazy-load-example');
-  lazyLoad().then(res => console.log(res));
-};
 
-document.querySelector("#lazy-load").addEventListener('click', lazyLoadExample);
